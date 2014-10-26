@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import lv.ressel.testapp.domain.User;
 import lv.ressel.testapp.services.UserService;
 
@@ -18,13 +17,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/{userId}")
-    public String getMainPage(Model model, @PathVariable Long userId) {
-        User user = userService.getUserById(userId);
+    @RequestMapping(value = "/user/{userName}")
+    public String getMainPage(Model model, @PathVariable String userName) {
+        User user = userService.getUserName(userName);
         if (user == null ) {
             return "404";
         }
-        model.addAttribute("username", user.getName());
-        return "hello";
+        model.addAttribute("user", user);
+        model.addAttribute("creatures", userService.getCreaturesByUserId(userName));
+        return "User";
     }
 }

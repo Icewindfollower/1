@@ -18,21 +18,13 @@ public class CreatureController {
     private CreatureService creatureService;
 
     @RequestMapping(value = "/creature/{creatureName}")
-    public String getCreaturePage(Model model,  @PathVariable String creatureName) {
+    public String getCreaturePage(Model model, @PathVariable String creatureName) {
         Creature creature = creatureService.getCreatureByName(creatureName);
-        if (creatureName == null ) {
+        if (creature != null) {
+            model.addAttribute("creature",creature);
+            return "Creature";
+        } else {
             return "404";
         }
-        if (creatureName.contains("FrostWolf") ) {
-            return "FrostWolf";
-        }
-        if (creatureName.contains("Enchanter") ) {
-            return "Enchanter";
-        }
-        if (creatureName.contains("WinterRider")) {
-            return "WinterRider";
-        }
-        model.addAttribute("creaturename", creature.getName());
-        return "404";
-}
+    }
 }

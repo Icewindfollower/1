@@ -1,0 +1,32 @@
+/*
+Orange:			EE872A
+Green:			8AC007
+Lightgreen:		e5eecc
+Blue:			40B3DF
+DarkGreyBg:		555555
+LightGreyBg:	f1f1f1 F6F4F0
+GreyBorder:		D4D4D4
+Pink:			B4009E
+*/
+html {overflow-y:scroll;}
+
+body {font-size:14px;color:#404040;
+background-color:#f1f1f1;margin:0px;}
+
+body,p,h1,h2,h3,h4,table,td,th,ul,ol,textarea,input {
+	font-family:verdana,helvetica,arial,sans-serif;
+}
+
+iframe 	{margin:0px;}
+img		{border:0;}
+
+table,th,td,input,textarea {
+	font-size:100%;
+}
+
+h1 {font-size:28px;margin-top:0px;font-weight:normal}
+h2 {font-size:22px;margin-top:10px;margin-bottom:10px;font-weight:normal}
+h3 {font-size:17px;font-weight:normal}
+h4 {font-size :12px;}
+h5 {font-size:11px;}
+h6 {font-size:10px;}

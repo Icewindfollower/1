@@ -12,7 +12,7 @@
 
 <body>
 
-<h1>${username}</h1>
+<h1>${user.name}</h1>
 <a href="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg"><img src="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg" width=500 </a>
 
 <h2><font color=orange face=arial>Заклинатель 1-ого уровня</font> <h2>
