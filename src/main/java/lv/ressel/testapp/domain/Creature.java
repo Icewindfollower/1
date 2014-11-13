@@ -17,6 +17,7 @@ public abstract class Creature {
     protected int rage = 0;
     protected int fear = 0;
     protected String description;
+    protected String url;
 
     public String getName() {
         return name;
@@ -70,5 +71,7 @@ public abstract class Creature {
         return description;
     }
 
-
+    public String getUrl() {
+        return url;
+    }
 }

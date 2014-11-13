@@ -16,5 +16,6 @@ public class Enchanter extends Creature {
         this.initiative = 11;
         this.description = "В общинах снежных эльфов чародеи пользуются огромным уважением," +
                 "являясь верными и могучими защитниками Снежной Империи, внушающими трепет врагам";
+        this.url ="/test-mvn-app/resources/images/Enchanter.jpg";
     }
 }

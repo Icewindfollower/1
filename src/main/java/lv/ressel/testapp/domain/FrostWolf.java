@@ -14,5 +14,6 @@ public class FrostWolf extends Creature {
         this.speed = 7;
         this.initiative = 12;
         this.description = "Снежные волки яростно сражаются на поле боя, не испытывая чувства страха";
+        this.url ="/test-mvn-app/resources/images/Frost_wolf.jpeg";
     }
 }

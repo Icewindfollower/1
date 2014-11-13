@@ -3,28 +3,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>Герой снежных эльфов</title>
 </head>
-
+<link href="/test-mvn-app/resources/css/main.css" rel="stylesheet" />
 <body>
 
 <h1>${user.name}</h1>
-<a href="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg"><img src="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg" width=500 </a>
-
+<h1>${creature.name}</h1>
+<img src="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg" width=500 </a>
 <h2><font color=orange face=arial>Заклинатель 1-ого уровня</font> <h2>
-        <c:if test="${not empty lists}">
+            <c:forEach var="slots" items="${slots}">
+                 <div style="display: inline-block;"><a href="/test-mvn-app/creature/${creature.name}">${creature.name}</a>
+                 <br><img src=${Slots.url} width=300>
 
-<ul>
-        <c:forEach var="listValue" items="${lists}">
-        				<li><a href="/test-mvn-app/creature/${listValue}">${listValue}</a><br></li>
-        			 </c:forEach>
+                 <form action="" method="POST">
+                    <label class="position">Позиция</label>
+                    <input type="text" name="position" class="form_text"><br>
+                    <input type="submit" value="Добавить" class="formbutton">
+                 </form>
 
-</ul>
-       </c:if>
-
+                 <form action="" method="DELETE">
+                    <label class="position">Позиция</label>
+                    <input type="text" name="position" class="form_text"><br>
+                    <input type="submit" value="Удалить" class="formbutton">
+                 </form>
+                 </div>
+            </c:forEach>
 </body>
 </html>

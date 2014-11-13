@@ -15,5 +15,6 @@ public class WinterRider extends Creature {
         this.initiative = 12;
         this.description = "Кавалерия снежных эльфов, зимние всадники, сокрушают врагов мощным " +
                 "натиском";
+        this.url ="/test-mvn-app/resources/images/Winter_rider.jpg";
     }
 }

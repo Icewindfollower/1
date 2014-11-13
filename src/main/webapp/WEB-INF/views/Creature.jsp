@@ -13,7 +13,7 @@
 <body>
 
 <h1>${creature.attack}</h1>
-<img src="/test-mvn-app/resources/images/image1.jpg" width=500>
+<img src="/test-mvn-app/resources/images/Aer.jpg" width=500>
 
 <h2><font color=orange face=arial>${creature.name}</font> <h2>
 

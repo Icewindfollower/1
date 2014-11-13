@@ -10,6 +10,6 @@ appender("STDOUT", ConsoleAppender) {
         pattern = "%date{dd MMM yyyy HH:mm:ss.SSS} %-7relative [%-20thread] %-5level %logger - %msg %n"
     }
 }
-root(INFO, ["STDOUT"])
+root(ERROR, ["STDOUT"])
 logger("org.hibernate.SQL", INFO);
 logger("org.apache.commons.httpclient.HttpMethodBase", ERROR);

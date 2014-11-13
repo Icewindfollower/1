@@ -17,6 +17,7 @@ public class User {
     protected int rage = 0;
     protected int fear = 0;
     protected String description;
+    protected String  url ="/test-mvn-app/resources/images/Enchanter.jpg";
 
     public void setName(String name) {
         this.name = name;
@@ -72,6 +73,10 @@ public class User {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
 
