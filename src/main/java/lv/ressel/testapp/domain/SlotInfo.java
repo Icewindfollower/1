@@ -11,7 +11,7 @@ public class SlotInfo {
     private Integer slotNumber;
     private String url;
 
-    public String getUrl(Creature creature) {
+    public String getUrl() {
         return url;
     }
 

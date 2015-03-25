@@ -1,6 +1,8 @@
 package lv.ressel.testapp.services;
 
+import lv.ressel.testapp.DAO.InputValueDAO;
 import lv.ressel.testapp.domain.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,9 @@ import java.util.*;
  */
 @Service
 public class UserService {
+
+    @Autowired
+    InputValueDAO inputValueDAO;
 
     private Map<String, Map<Integer, Creature>> creaturesByUser;
     private HashMap<Integer, Creature> creatureSet;
@@ -42,6 +47,7 @@ public class UserService {
     }
 
     public void addCreature(int position,String userName) {
+        inputValueDAO.addValue();
         creatureSet.put(position, new Enchanter());
     }
 

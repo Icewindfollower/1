@@ -15,9 +15,11 @@
 <h1>${creature.name}</h1>
 <img src="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg" width=500 </a>
 <h2><font color=orange face=arial>Заклинатель 1-ого уровня</font> <h2>
+    <p><label for="weather_temperature">Поле ввода для базы данных </label><input id="input_value_for_database" type="text" value=""></p>
+    <p><label for="weather_temperature">Поле отображения значений из базы данных </label><input id="database_values" type="text" value=""></p>
             <c:forEach var="slots" items="${slots}">
                  <div style="display: inline-block;"><a href="/test-mvn-app/creature/${creature.name}">${creature.name}</a>
-                 <br><img src=${Slots.url} width=300>
+                 <br><img src=${slots.url} width=300>
 
                  <form action="" method="POST">
                     <label class="position">Позиция</label>

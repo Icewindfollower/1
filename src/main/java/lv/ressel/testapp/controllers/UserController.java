@@ -1,5 +1,6 @@
 package lv.ressel.testapp.controllers;
 
+import lv.ressel.testapp.DAO.InputValueDAO;
 import lv.ressel.testapp.domain.Creature;
 import lv.ressel.testapp.domain.EmptySlot;
 import lv.ressel.testapp.domain.SlotInfo;
@@ -7,6 +8,7 @@ import lv.ressel.testapp.services.CreatureService;
 import org.aspectj.weaver.patterns.ConcreteCflowPointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +57,7 @@ public class UserController {
         return "User";
     }
 
+
     @RequestMapping(value = "/user/{userName}", method = RequestMethod.POST)
     public String addCreature(Model model, @PathVariable String userName, @RequestParam("position") int position) {
         User user = userService.getUserName(userName);
@@ -71,6 +74,8 @@ public class UserController {
         model.addAttribute("user", user);
         return "User";
     }
+
+
 
     @RequestMapping(value = "/user/{userName}", method = RequestMethod.DELETE)
     public String removeCreature(Model model, @PathVariable String userName, @RequestParam("removePosition") int removalPosition) {
