@@ -6,33 +6,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Герой снежных эльфов</title>
+    <title>Герой снежных эльфов</title>
 </head>
-<link href="/test-mvn-app/resources/css/main.css" rel="stylesheet" />
+<link href="/test-mvn-app/resources/css/main.css" rel="stylesheet"/>
 <body>
 
 <h1>${user.name}</h1>
+
 <h1>${creature.name}</h1>
 <img src="http://fc03.deviantart.net/fs71/i/2012/326/4/2/ancient_magic_by_mavrosh-d5lt5sv.jpg" width=500 </a>
-<h2><font color=orange face=arial>Заклинатель 1-ого уровня</font> <h2>
-    <p><label for="weather_temperature">Поле ввода для базы данных </label><input id="input_value_for_database" type="text" value=""></p>
-    <p><label for="weather_temperature">Поле отображения значений из базы данных </label><input id="database_values" type="text" value=""></p>
-            <c:forEach var="slots" items="${slots}">
-                 <div style="display: inline-block;"><a href="/test-mvn-app/creature/${creature.name}">${creature.name}</a>
-                 <br><img src=${slots.url} width=300>
+<h2><font color=orange face=arial>Заклинатель 1-ого уровня</font>
 
-                 <form action="" method="POST">
-                    <label class="position">Позиция</label>
-                    <input type="text" name="position" class="form_text"><br>
-                    <input type="submit" value="Добавить" class="formbutton">
-                 </form>
+    <h2>
 
-                 <form action="" method="DELETE">
-                    <label class="position">Позиция</label>
-                    <input type="text" name="position" class="form_text"><br>
-                    <input type="submit" value="Удалить" class="formbutton">
-                 </form>
-                 </div>
-            </c:forEach>
+        <form action="" method="POST">
+            <label class="position"></label>
+            <input type="text" name="position" class="form_text">
+            <input type="submit" value="Добавить значение в базу" class="formbutton">
+            <p><input id="database_value_1" type="text" value="${user.name}"> </p>
+            <p><input id="database_value_2" type="text" value="${DAOExampleObject}"> </p>
+
+        </form>
+
+        <c:forEach var="slots" items="${slots}">
+        <div style="display: inline-block;"><a href="/test-mvn-app/creature/${creature.name}">${creature.name}</a>
+            <br><img src=${slots.url} width=300>
+
+            <form action="" method="POST">
+                <label class="position">Позиция</label>
+                <input type="text" name="position" class="form_text"><br>
+                <input type="submit" value="Добавить" class="formbutton">
+            </form>
+
+            <form action="" method="DELETE">
+                <label class="position">Позиция</label>
+                <input type="text" name="position" class="form_text"> <br>
+                <input type="submit" value="Удалить" class="formbutton">
+            </form>
+        </div>
+        </c:forEach>
 </body>
 </html>

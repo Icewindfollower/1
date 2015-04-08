@@ -47,8 +47,16 @@ public class UserService {
     }
 
     public void addCreature(int position,String userName) {
-        inputValueDAO.addValue();
         creatureSet.put(position, new Enchanter());
+    }
+
+    public void addValueToDao() {
+        inputValueDAO.addValue();
+    }
+
+    public DAOExampleObject getAttackFromDao() {
+        inputValueDAO.getDataFromTable();
+        return inputValueDAO.getDataFromTable().get(2);
     }
 
     public void removeCreature(int position) {

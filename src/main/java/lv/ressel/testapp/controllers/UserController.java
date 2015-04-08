@@ -1,24 +1,16 @@
 package lv.ressel.testapp.controllers;
 
-import lv.ressel.testapp.DAO.InputValueDAO;
-import lv.ressel.testapp.domain.Creature;
-import lv.ressel.testapp.domain.EmptySlot;
-import lv.ressel.testapp.domain.SlotInfo;
-import lv.ressel.testapp.services.CreatureService;
-import org.aspectj.weaver.patterns.ConcreteCflowPointcut;
+import lv.ressel.testapp.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import lv.ressel.testapp.domain.User;
 import lv.ressel.testapp.services.UserService;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +26,7 @@ public class UserController {
     @RequestMapping(value = "/user/{userName}")
     public String getMainPage(Model model, @PathVariable String userName) {
         User user = userService.getUserName(userName);
+        DAOExampleObject daoExampleObject = userService.getAttackFromDao();
         if (user == null) {
             return "404";
         }
@@ -51,16 +44,18 @@ public class UserController {
         }
         model.addAttribute("slots", slots);
         model.addAttribute("user", user);
+        model.addAttribute("DAOExampleObject", daoExampleObject.getAttack());
+
         Map<Integer, Creature> creaturesByUserId = userService.getCreaturesByUserId(userName);
         model.addAttribute("creatures", creaturesByUserId.values());
 
         return "User";
     }
 
-
     @RequestMapping(value = "/user/{userName}", method = RequestMethod.POST)
     public String addCreature(Model model, @PathVariable String userName, @RequestParam("position") int position) {
         User user = userService.getUserName(userName);
+        DAOExampleObject daoExampleObject = userService.getAttackFromDao();
         List<SlotInfo> slots = new ArrayList<SlotInfo>();
         for (int i = 0; i < 7; i++) {
             SlotInfo s = new SlotInfo();
@@ -70,12 +65,12 @@ public class UserController {
         }
         model.addAttribute("slots", slots);
         userService.addCreature(position, userName);
+        //userService.addValueToDao();
         model.addAttribute("creatures", userService.getCreaturesByUserId(userName).values());
         model.addAttribute("user", user);
+        model.addAttribute("DAOExampleObject", daoExampleObject.getAttack());
         return "User";
     }
-
-
 
     @RequestMapping(value = "/user/{userName}", method = RequestMethod.DELETE)
     public String removeCreature(Model model, @PathVariable String userName, @RequestParam("removePosition") int removalPosition) {
